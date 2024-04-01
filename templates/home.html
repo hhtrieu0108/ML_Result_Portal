@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML_Portal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/Style.css') }}">
+    <script src="https://kit.fontawesome.com/937094e37e.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="images/user1.png" />
+    <style>
+        /* Loading Circle CSS */
+        .loading-circle {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #162570;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 2s linear infinite;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            display: none;
+        }
+
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+<div id="header">
+    <div class="container">
+        <div class="header-text">
+            <p>Machine Learning</p>
+            <h1>Analytics<span> Results</span></h1>
+        </div>
+    </div>
+</div>
+<div class="blocks">
+    <div class="blocks-list">
+        <div  onclick="goToSegmentPage()">
+            <h2>Segmentation</h2>
+            <i class="fa-solid fa-tag"></i>
+        </div>
+        <div  onclick="goToUpsellPage()">
+            <h2>Up-Sell</h2>
+            <i class="fa-solid fa-briefcase"></i>
+        </div>
+        <div  onclick="goToCrossSellPage()">
+            <h2>Cross-Sell</h2>
+            <i class="fa-solid fa-chart-simple"></i>
+        </div>
+        <div  onclick="viewPipeline()">
+            <h2>View Pipeline</h2>
+            <i class="fa-solid fa-wallet"></i>
+        </div>
+    </div>
+</div>
+<div class="loading-circle" id="loadingCircle"></div>
+
+<script>
+    function navigate(url) {
+        document.getElementById('loadingCircle').style.display = 'block';
+        setTimeout(function() {
+            window.location.href = url;
+        }, 1000);
+    }
+
+    function viewPipeline() {
+      navigate('/get_ml_pipeline');
+    }
+    
+    function goToSegmentPage() {
+      navigate('/segment_page');
+    }
+  
+    function goToCrossSellPage() {
+      navigate('/cross_sell_page');
+    }
+  
+    function goToUpsellPage() {
+      navigate('/upsell_page');
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,312 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif; 
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+    font-size: 62.5%; 
+}
+body{
+    background: #FFF;
+    color: #fff;
+}
+
+.container nav img{
+    position: absolute;
+    top: 0rem;
+    left: 7rem;
+    width: 19rem;
+    height: auto;
+}
+.container{
+    padding: 1rem 10%; 
+}
+.home{
+    margin-top: 7rem; 
+    position: absolute;
+    top: 2.5rem;
+    left: 7.5rem; 
+}
+.home p, .home h2 {
+    position: absolute;
+    font-size: 1.4rem; 
+    font-weight: bold;
+    color: #162570;
+    border: 0.2rem solid; 
+    width: 8.5rem; 
+    height: 4rem; 
+    box-sizing: border-box;
+    border-radius: 2.5rem; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.5s,transform 0.5s;
+}
+.next-page p, .next-page h2, .up-sell p, .up-sell h2{
+    position: absolute;
+    font-size: 1.4rem; 
+    font-weight: bold;
+    color: #162570;
+    border: 0.2rem solid; 
+    width: 12.5rem; 
+    height: 4rem; 
+    box-sizing: border-box;
+    border-radius: 2.5rem; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.5s,transform 0.5s;
+}
+.next-page p, .next-page h2{
+    position: absolute;
+    right: -4rem;
+}
+.up-sell p, .up-sell h2{
+    position: absolute;
+    left: -4rem;
+}
+.home p, .next-page p, .up-sell p {
+    background-color: #F4CE14;
+    box-shadow: 0 0.4rem 0.8rem rgba(255, 255, 255, 0.8);
+}
+
+.home h2, .next-page h2, .up-sell h2 {
+    background-color: #fff;
+    box-shadow: 0 0.4rem 0.8rem rgba(255, 255, 255, 0.8);
+}
+.up-sell{
+    position: absolute;
+    top: 4rem;
+    right: 12rem;
+}
+.next-page{
+    position: absolute;
+    top: 4rem;
+    right: 22rem;
+}
+.find {
+    position: absolute;
+    top: 9.75rem; 
+    left: 17rem; 
+    font-size: 2rem;    
+    color: #162570;
+    border: 0.2rem solid; 
+    width: 55rem; 
+    height: 4rem; 
+    box-sizing: border-box;
+    border-radius: 4rem; 
+    background-color: #FFF;
+    box-shadow: 0 0.4rem 0.8rem rgba(255, 255, 255, 0.8); 
+    display: flex;
+    padding-left: 1.2rem; 
+    align-items: center;
+    justify-content: left;
+    transition: background 0.5s,transform 0.5s;
+}
+.find input[type="text"] {
+    border: 0.2rem solid #fff; 
+    border-radius: 2rem; 
+    outline: none;
+    flex-grow: 1;
+    padding: 0.5rem; 
+    font-size: 1.4rem; 
+}
+.find i.fa-magnifying-glass {
+    font-size: 2.5rem; 
+    margin-right: 0.5rem; 
+}
+
+.home p:hover, .next-page p:hover, .up-sell p:hover {
+    background: #F4CE14;
+    transform: translateY(-0.7rem); 
+}
+
+.show {
+    font-size: 1.6rem; 
+    position: absolute;
+    top: 34rem; 
+    right: 3rem;
+    font-weight: bold;
+    padding-top: 3rem; 
+    color:#162570;
+    display: flex;
+    transition: background 0.5s,transform 0.5s;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.logo{
+    width: 1rem; 
+}
+.logo1{
+    position: absolute;
+    top: 0;
+    left: 7rem; 
+    width: 15%;
+    height: auto;
+}
+
+.header-text{
+    margin-top: 10rem; 
+    position: absolute;
+    top: 5rem;
+    left: 7rem; 
+    color: #F4CE14;
+    border: 0.2rem solid; 
+    font-weight: bold;
+    width: 65rem; 
+    height: 24rem; 
+    font-size: 4rem; 
+    padding-left: 5rem; 
+    padding-top: 2rem; 
+    box-sizing: border-box;
+    border-color: #162570;
+    border-radius: 3rem;
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    transition: background 0.5s,transform 0.5s;
+}
+.header-text img{
+    padding-left: 6rem; 
+}
+.header-text h1{
+    font-size: 4rem; 
+    position: absolute;
+    top: 4rem; 
+    font-weight: bold;
+    padding-top: 3rem; 
+    margin-bottom: 1rem; 
+    color:#162570;
+    box-sizing: border-box;
+    width: 40rem; 
+    height: 20rem; 
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    transition: background 0.5s,transform 0.5s;
+}
+
+.download {
+    font-size: 1.6rem; 
+    position: absolute;
+    top: 31rem; 
+    left: 12.5rem; 
+    font-weight: bold;
+    color:#162570;
+    box-sizing: border-box;
+    width: 13rem; 
+    height: 5rem; 
+    display: flex;
+    padding-top: 0;
+    padding-left: 2rem; 
+    align-items: left;
+    border: 0.2rem solid; 
+    border-color: #162570;
+    border-radius: 1rem; 
+    background-color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.5s,transform 0.5s;
+}
+.download i{
+    font-size: 1.2rem; 
+    position: absolute;
+    top: 0.8rem; 
+    left: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.download i.fa-download{
+    font-size: 1.5rem; 
+    padding-top: 0.7rem;
+    align-items: center;
+}
+
+.download:hover{
+    background:#F4CE14;
+    color: #fff;
+}
+table {
+    width: 93%;
+    height: auto;
+    border-collapse: separate;
+    border-spacing: 0;
+    position: absolute;
+    top: 40rem;
+    left: 7rem;
+    margin-top: 2rem;
+    border: 2px solid #162570;
+    text-align: center;
+    align-items: center;
+
+}
+th, td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    color: #162570;
+}
+th {
+    background-color: #162570;
+    color: #fff;
+}
+tr:hover {
+    background-color: #f2f2f2;
+}
+
+.header-text img{
+    width: 40rem;
+    height: auto;
+    position: absolute;
+    right: 3rem;
+}
+table {
+    width: 92%;
+    border-collapse: collapse;
+    table-layout: auto; 
+    border: 2px solid #162570;
+    font-size: 14px;
+}
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+th {
+    background-color: #162670; 
+    color: white;
+}
+tr:nth-child(even) {background-color: #f2f2f2;}
+.download-button:hover {
+    background-color: #218838; 
+}
+
+.loading-circle {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #162570;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 2s linear infinite;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            display: none;
+        }
+
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }

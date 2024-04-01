@@ -1,0 +1,233 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif; 
+    box-sizing: border-box;
+    
+}
+.html{
+    scroll-behavior: smooth;
+    font-size: 62.5%; 
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    background: #fff;
+}
+.background img{
+    width: 30rem;
+    height: auto;
+    position: relative;
+    top: 9rem;
+    left: 4rem;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+.logo-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.logo-section img{
+    position: absolute;
+    top: 0.1rem;
+    left: 5rem;
+    width: 15%;
+    height: auto;
+}
+.logo-section .home {
+    position: relative;
+    bottom: 25rem;
+    left: 4rem;
+    background-color: #fff;
+    border: 2px solid #162670;
+    color: #162670;
+    width: 10rem;
+    height: auto;
+    font-weight: bolder;
+    border-radius: 12px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition: background 0.5s, transform 0.5s;
+    order: 1;
+}
+.logo-section .decor{
+    position: absolute;
+    top: 6.5rem;
+    left: 5.25rem;
+    background-color: #fff;
+    border: 2px solid #162670;
+    color: #162670;
+    width: 10rem;
+    height: auto;
+    font-weight: bolder;
+    border-radius: 12px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    order: 2;
+}
+.logo-section .home:hover{
+    background: #F4CE14;
+    transform: translateY(-0.6rem);
+}
+.logo1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.logo1 .right {
+    position: relative;
+    bottom: 26rem;
+    right: 3.5rem;
+    width: 10rem;
+    height: auto;
+    font-weight: bolder;
+    background-color: #fff;
+    color: #162670;
+    border: 2px solid #162670;
+    border-radius: 10px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    order: 1;
+    transition: background 0.5s, transform 0.5s;
+    cursor: pointer;
+}
+.logo1 .right:hover{
+    background: #F4CE14;
+    transform: translateY(-0.6rem);
+}
+.logo1 .decor1{
+    position: absolute;
+    top: 5.5rem;
+    right: 4.75rem;
+    background-color: #fff;
+    border: 2px solid #162670;
+    color: #162670;
+    width: 10rem;
+    height: 2.5rem;
+    font-weight: bolder;
+    border-radius: 12px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 4px 2px;
+    cursor: pointer;
+    order: 2;
+}
+.content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.card{
+    position: relative;
+    bottom: 25rem;
+    left: 45rem;
+}
+.card1{
+    margin-right: 40px;
+    position: relative;
+    bottom: 25rem;
+    left: 48rem;
+}
+.content .card h1{
+    position: relative;
+    top: 80px;
+    order: 2;
+    color: #162670;
+    background-color:#f4ce14;
+    border: 2px solid #162670;
+    border-radius: 30px;
+    width: 10rem;
+    height: 11rem;
+    text-align: center;
+    padding-top: 120px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    transition: background 0.5s, transform 0.5s;
+}
+.content .card h1:hover{
+    background: #F4CE14;
+    transform: translateY(-2rem);
+}
+.content .card1 h2{
+    position: relative;
+    top: 80px;
+    order: 2;
+    color: #162670;
+    background-color:#f4ce14;
+    border: 2px solid #162670;
+    border-radius: 30px;
+    width: 10rem;
+    height: 11rem;
+    text-align: center;
+    padding-top: 120px;
+    margin-bottom: 20px;
+    font-size: 18px;
+
+    transition: background 0.5s, transform 0.5s;
+}
+.content .card1 h2:hover{
+    background: #F4CE14;
+    transform: translateY(-2rem);
+}
+.fa-solid.fa-arrow-right{
+    color: #f4ce14;
+}
+.content .card i{
+    color: #fff;
+    position: relative;
+    top: -7rem;
+    text-align: center;
+    align-items: center;
+    font-size: 80px;
+}
+.content .card1 i{
+    color: #fff;
+    position: relative;
+    font-size: 80px;
+    top: -7rem;
+    text-align: center;
+    align-items: center;
+}
+
+
+
+.loading-circle {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #162570;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 2s linear infinite;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            display: none;
+        }
+
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }

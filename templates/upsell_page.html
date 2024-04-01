@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Up-Sell_Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/Style1.css') }}">
+    <script src="https://kit.fontawesome.com/937094e37e.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" type="images/x-icon" href="images/user1.png" />
+</head>
+<style></style>
+<body>  
+    <div class="background">
+        <img src="../static/images/money.jpg">
+    </div>
+    <div class="header">
+        <div class="logo-section">
+        <button class="home" onclick=" navigate('/')">Home</button>
+        <h2 class="decor">Home</h2>
+        </div>
+        <div class="logo1">
+        <button class="right" onclick="navigate('/segment_page')">Segmentation</button>
+        <h2 class="decor1"></h2>
+        </div>
+    </div>
+    <div class="content">
+        <div class="card" onclick="navigate('/upsell_credit_page')">
+            <h1>Up-Sell Credit <i class="fa-solid fa-money-check-dollar"></i></h1>
+        </div>
+        <div class="card1" onclick=" navigate('/upsell_debit_page')">
+            <h2>Up-Sell Debit <i class="fa-solid fa-money-check-dollar"></i></h2>
+        </div>
+    </div>
+	<div class="loading-circle" id="loadingCircle"></div>
+
+	<script>
+		function navigate(url) {
+			document.getElementById('loadingCircle').style.display = 'block';
+			setTimeout(function() {
+				window.location.href = url;
+			}, 1000);
+		}
+	 
+	</script>
+    </body>
+    </html>
+    
+
+

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cross-Sell</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/cross_style.css') }}">
+    <script src="https://kit.fontawesome.com/937094e37e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="header">
+        <div class="container">
+            <div class="find">
+                <i class="fa-solid fa-magnifying-glass" ></i>
+                <input type="text" placeholder="Search CIF_ID..." oninput="filterTable()">|
+                <input type="text" placeholder="Search Cluster..." oninput="filterCluster()">
+            </div>
+            <div class="next-page"  onclick= "navigate('/segment_page')">
+                <h2>Segmentation</h2>
+                <p>Segmentation</p>
+            </div>
+            <div class="up-sell"  onclick="navigate('/upsell_page')">
+                <h2>Up-Sell</h2>
+                <p>Up-Sell</p>
+            </div>
+            <div class="home"  onclick="navigate('/')">
+                <h2>Home</h2>
+                <p>Home</p>
+            </div>
+            <div class="header-text">
+                <p>Cross-Sell</p>
+                <h1>DATA</h1>
+                <img src="../static/images/Cross-Sell.jpg">
+            </div>
+            <div class="show">
+                <p>Show off 100 sample rows</p>
+            </div>
+				<table id= "dataTable">
+					<thead>
+						<tr>
+							<th>CIF_ID</th>
+							<th>Product_Type</th>
+							<th>Cluster</th>
+							<th>Recommend</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for row in data %}
+						<tr>
+							<td>{{ row['CIF_ID'] }}</td>
+							<td>{{ row['PRODUCT_TYPE'] }}</td>
+							<td>{{ row['Cluster'] }}</td>
+							<td>{{ row['Recommend'] }}</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>	
+            </div>
+            <div class="download" onclick="handleDownload()">
+                <p>Download</p>
+                <i class="fa-solid fa-download"></i>
+            </div>
+            </div>
+        </div>
+    </div>
+	
+	<div class="loading-circle" id="loadingCircle"></div>
+	
+
+<script>
+    function navigate(url) {
+        document.getElementById('loadingCircle').style.display = 'block';
+        setTimeout(function() {
+            window.location.href = url;
+        }, 1000);
+    }
+	
+	function handleDownload() {
+        document.getElementById('loadingCircle').style.display = 'block';
+        // Simulate download process for 2 seconds
+        setTimeout(function() {
+            document.getElementById('loadingCircle').style.display = 'none';
+            // Provide the download link
+            window.location.href = "/download_cross_sell_data";
+        }, 3000);
+    }
+	
+	function filterTable() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.querySelector('.find input');
+        filter = input.value.toUpperCase();
+        table = document.getElementById('dataTable');
+        tr = table.getElementsByTagName('tr');
+
+        // Lặp qua từng hàng của bảng
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName('td')[0]; // Chọn cột CIF_ID, chỉ số 0 là cột đầu tiên
+
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                
+                // So sánh giá trị CIF_ID với giá trị nhập vào
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = '';
+                } else {
+                    tr[i].style.display = 'none';
+                }
+            }
+        }
+    }
+
+
+    function filterCluster() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.querySelector('.find input:last-child');
+        filter = input.value.toUpperCase();
+        table = document.getElementById('dataTable');
+        tr = table.getElementsByTagName('tr');
+
+        // Lặp qua từng hàng của bảng
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName('td')[2]; // Chọn cột Cluster, chỉ số 2 là cột thứ ba
+
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                
+                // So sánh giá trị Cluster với giá trị nhập vào
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = '';
+                } else {
+                    tr[i].style.display = 'none';
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>

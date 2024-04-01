@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Up-Sell Debit</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style_updebit.css') }}">
+    <script src="https://kit.fontawesome.com/937094e37e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+	<script>
+    function navigate(url) {
+        document.getElementById('loadingCircle').style.display = 'block';
+        setTimeout(function() {
+            window.location.href = url;
+        }, 1000);
+    }
+	
+	function goToHomePage() {
+      navigate('/');
+    }
+	
+	function goToUpsellPage() {
+      navigate('/upsell_page');
+    }
+	
+	
+	function handleDownload() {
+        document.getElementById('loadingCircle').style.display = 'block';
+        // Simulate download process for 2 seconds
+        setTimeout(function() {
+            document.getElementById('loadingCircle').style.display = 'none';
+            // Provide the download link
+            window.location.href = "/download_upsell_debit?type={{ type }}";
+        }, 3000);
+    }
+
+    function filterTable() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.querySelector('.find input');
+        filter = input.value.toUpperCase();
+        table = document.getElementById('dataTable');
+        tr = table.getElementsByTagName('tr');
+
+        // Lặp qua từng hàng của bảng
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName('td')[0]; // Chọn cột CIF_ID, chỉ số 0 là cột đầu tiên
+
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                
+                // So sánh giá trị CIF_ID với giá trị nhập vào
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = '';
+                } else {
+                    tr[i].style.display = 'none';
+                }
+            }
+        }
+    }
+
+    function filterCluster() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.querySelector('.find input:last-child');
+        filter = input.value.toUpperCase();
+        table = document.getElementById('dataTable');
+        tr = table.getElementsByTagName('tr');
+
+        // Lặp qua từng hàng của bảng
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName('td')[2]; // Chọn cột Cluster, chỉ số 2 là cột thứ ba
+
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                
+                // So sánh giá trị Cluster với giá trị nhập vào
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = '';
+                } else {
+                    tr[i].style.display = 'none';
+                }
+            }
+        }
+    }
+</script>	
+    <div id="header">
+        <div class="container">
+            <div class="find">
+                <i class="fa-solid fa-magnifying-glass" ></i>
+                <input type="text" placeholder="Search CIF_ID..." oninput="filterTable()">|
+                <input type="text" placeholder="Search Cluster..." oninput="filterCluster()">
+            </div>
+            <div class="return" onclick="navigate('/upsell_page')">
+                <h2>Return to Up-Sell Page</h2>
+                <p>Return to Up-Sell Page</p>
+            </div>
+            <div class="home"  onclick="navigate('/')">
+                <h2>Home</h2>
+                <p>Home</p>
+            </div>
+            <div class="header-text">
+                <p>Up-Sell Debit</p>
+                <h1>DATA</h1>
+                <img src="../static/images/Up-Sell2.jpg">
+            </div>
+            
+            <div class="download"  onclick="handleDownload()">
+                <p><i class="fa-solid fa-download"></i>Download</p>
+            </div>
+            <div class="type1" onclick="navigate('/upsell_debit_page?type=gold')">
+                <i class="fa-solid fa-money-bill-transfer"></i>
+                <h2>Up-Sell to Gold</h2>
+            </div>
+            <div class="type2" onclick="navigate('/upsell_debit_page?type=plat')">
+                <i class="fa-solid fa-money-bill-transfer"></i>
+                <h2>Up-Sell to Platinum</h2>
+            </div>
+			<div class="show">
+                <p>Show off 100 sample rows</p>
+            </div>
+	<table id="dataTable">
+		<thead>
+			<tr>
+				<th>CIF_ID</th>
+				<th>Card_Class</th>
+				<th>Cluster</th>
+				<th>Recency</th>
+				<th>Frequency</th>
+				<th>Monetary</th>
+				{% if type == 'gold' %}
+					<th>Upsell_to_Gold</th>
+				{% else %}
+					<th>Upsell_to_Platinum</th>
+				{% endif %}
+				<th>Probability_of_Yes</th>
+				<th>Probability_of_No</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for row in data %}
+			<tr>
+				<td>{{ row['CIF_ID'] }}</td>
+				<td>{{ row['CARD_CLASS'] }}</td>
+				<td>{{ row['Cluster'] }}</td>
+				<td>{{ row['Recency'] }}</td>
+				<td>{{ row['Frequency'] }}</td>
+				<td>{{ row['Monetary'] }}</td>
+				{% if type == 'gold' %}
+					<td>{{ row['Upsell_to_Gold'] }}</td>
+				{% else %}
+					<td>{{ row['Upsell_to_Platinum'] }}</td>
+				{% endif %}
+				<td>{{ row['Probability_of_Yes'] }}</td>
+				<td>{{ row['Probability_of_No'] }}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+            </div>
+        </div>
+    </div>
+	
+	<div class="loading-circle" id="loadingCircle"></div>
+</body>
+</html>
